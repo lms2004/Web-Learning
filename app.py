@@ -20,6 +20,7 @@
 
 # 导入 Flask 和其他必要的库
 from flask import Flask, render_template, request, jsonify, send_from_directory
+from flask_cors import CORS  # 导入 Flask-CORS
 import os
 import cv2  # 使用 OpenCV 处理视频
 import base64
@@ -44,8 +45,11 @@ import time
 # 获取访问权限
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
-# 创建一个 Flask 应用实例
-app = Flask(__name__, static_folder='../react_font/public', static_url_path='')
+# 创建一个 Flask 应用实例,规定网站的静态入口文件夹
+app = Flask(__name__)
+
+# 使用 Flask-CORS
+CORS(app)  # 初始化 CORS。这将允许所有域名下的所有路由的跨域请求。
 
 # 设置上传文件夹的路径
 UPLOAD_SOURCE_FOLDER='upload'
@@ -155,8 +159,8 @@ async def handle_async_operations(narration_script, output_file):
 # 定义路由：当用户访问网站根目录时，返回 index.html 页面
 @app.route('/')
 def index():
-    # 返回html标签页
-    return send_from_directory(app.static_folder, 'index.html')
+    # 使用 render_template 来渲染 HTML 页面
+    return render_template('index.html')
 
 # 定义文件上传的路由
 @app.route('/upload', methods=['POST'])

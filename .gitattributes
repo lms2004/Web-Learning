@@ -1,0 +1,9 @@
+react_font filter=lfs diff=lfs merge=lfs -text
+upload filter=lfs diff=lfs merge=lfs -text
+package-lock.json filter=lfs diff=lfs merge=lfs -text
+app.py filter=lfs diff=lfs merge=lfs -text
+node_modules filter=lfs diff=lfs merge=lfs -text
+static filter=lfs diff=lfs merge=lfs -text
+templates filter=lfs diff=lfs merge=lfs -text
+test.py filter=lfs diff=lfs merge=lfs -text
+MP3 filter=lfs diff=lfs merge=lfs -text

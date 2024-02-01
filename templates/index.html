@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Processing App</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <!-- 链接外部 CSS 文件 -->
+</head>
+<body>
+
+    <h1>上传视频</h1>
+    <!-- h1 标签定义一个大标题 -->
+    
+    <select name="userOption1" id="optionSelect1" onchange="updateOptionTitle()">
+        <option value="相声风格" title="传统中国喜剧，通常由两位表演者进行快速、机智的对话。例句: '甲：我有一种摄影式的记忆力。乙：真的吗？甲：对，但是胶卷用完了。'">相声风格</option>
+        <option value="小品风格" title="中国特有的短剧形式，侧重于生活幽默和日常趣事。例句: '你看这电视远程控制器，有时候不按它它动，按它它不动。'">小品风格</option>
+        <option value="网络短视频风格" title="适应网络时代的幽默风格，快节奏、接地气。例句: '今天试着做了健康餐，结果连狗狗都嫌弃我。'">网络短视频风格</option>
+        <option value="校园笑话风格" title="以校园生活为背景的幽默，贴近学生日常。例句: '数学老师的爱情，总是从分数开始。'">校园笑话风格</option>
+        <option value="白领幽默风格" title="针对办公室和白领生活的幽默。例句: '加班就像洗发水，日日重复，周周相似。'">白领幽默风格</option>
+        <option value="家庭生活幽默风格" title="描述家庭日常的幽默，温馨又好笑。例句: '妈妈的厨艺好得连厨房的烟雾报警器都拍手叫好。'">家庭生活幽默风格</option>
+        <option value="方言幽默风格" title="利用方言特色制造的幽默，地域特色浓厚。例句: '东北话说‘你瞅啥’，是多功能语句，可以表达99%的情绪。'">方言幽默风格</option>
+        <option value="宠物幽默风格" title="以宠物为主角的幽默，萌趣横生。例句: '我家的猫是个哲学家，总喜欢在猫砂上深思。'">宠物幽默风格</option>
+        <option value="老司机幽默风格" title="网络流行语‘老司机’的幽默风格，意味深长且风趣。例句: '老司机开车，不仅仅是手艺，更是一种态度。'">老司机幽默风格</option>
+    </select>
+    
+    
+    
+
+
+    <form id="uploadForm">
+        <!-- form 标签创建一个表单，用于用户输入。 -->
+        <input type="file" name="video" accept="video/*" ><br>
+        <!-- 文件上传域，只接受视频文件 -->
+        <input type="submit" value="上传">
+        <!-- 提交按钮，用于提交表单 -->
+    </form>
+    
+    <div id="result"></div>
+    <!-- div 标签定义一个区块，用于显示结果 -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 引入 jQuery 库 -->
+    <script src="../static/script.js"></script>
+    <!-- 引入自定义 JavaScript 文件 -->
+</body>
+</html>

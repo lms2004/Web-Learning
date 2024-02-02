@@ -1,60 +1,123 @@
+/* 定义颜色方案 */
+:root {
+    --primary-color: #0d1619; /* 主色调 */
+    --secondary-color: #351750; /* 次要色调 */
+    --accent-color: #36cc70; /* 强调色*/
+    --background-color: #cfcaca; /* 背景色 */
+    --text-color: #0a6e25; /* 文本色 */
+    --border-color: #cdc6c6; /* 边框色 */
+}
+
+/* 基本样式设置 */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--background-color);
     margin: 0;
-    padding: 0;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    justify-content: flex-start;
+    min-height: 100vh;
+    color: var(--text-color);
 }
-h1 {
-    color: #161313;
-}
-#uploadForm {
-    background-color: rgb(210, 210, 210);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(7, 223, 86, 0.1);
-    margin-bottom: 20px;
-}
-input[type="file"] {
-    margin-bottom: 20px;
 
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
 }
-input[type="submit"] {
-    background-color: #44c60c;
-    color: white;
-    border: none;
-    padding: 20px 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    border-radius: 10px;
-    cursor: pointer;
+
+/* 上传表单样式 */
+#uploadForm {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
 }
-input[type="submit"]:hover {
-    background-color: #45a049;
-    
-}
-#result {
-    width: 80%;
-    border: 1px solid #ddd;
+
+input[type="file"], input[type="submit"] {
+    margin-bottom: 15px;
+    width: 100%;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    word-break: break-all;
+    border: 1px solid var(--border-color);
+}
+
+input[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+/* 结果和进度条容器样式 */
+#result, #progressBarContainer {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+}
+
+#result {
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background-color: #ffffff;
 }
 
 #progressBarContainer {
-    width: 100%;
-    background-color: #ddd;
+    background-color: var(--secondary-color);
 }
 
-#progressBar {
-    width: 0%;
+#fileUploadProgress {
+    width: 100%;
     height: 20px;
-    background-color: #4CAF50;
+    background-color: var(--accent-color);
+    border-radius: 5px;
 }
+
+/* 风格选择和音色选择模块的布局 */
+.selection-modules {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1500px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.selection-module {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 48%;
+    padding: 15px;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.selection-module h3 {
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.selection-module select, .selection-module input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* 可根据需要添加或修改特定元素的样式 */

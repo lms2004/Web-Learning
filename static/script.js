@@ -17,7 +17,9 @@ $(document).ready(function() {
         
         // 添加音色选择到 formData
         formData.append('userOption100', $('#optionSelect100').val());
-
+        
+        // 添加使用密钥
+        formData.append('registration_key', $('#registration_key').val());
         // 使用 AJAX 发送表单数据
         $.ajax({
             url: '/upload',  // 文件上传的 URL
@@ -46,6 +48,9 @@ $(document).ready(function() {
         });
     });
 });
+
+
+
 
 
 // 处理文件上传响应的函数
@@ -157,4 +162,29 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    // Send AJAX request to register user
+});
 
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var username = document.getElementById('loginUsername').value;
+    var password = document.getElementById('loginPassword').value;
+    // Send AJAX request to login user
+});
+
+function sendRequest(url, method, data, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(method, url, true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        callback(JSON.parse(xhr.responseText));
+    };
+    xhr.send(data);
+}
+
+// After successful login
+document.getElementById('uploadButton').disabled = false;

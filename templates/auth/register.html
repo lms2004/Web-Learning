@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>注册页面</title>
+</head>
+<body>
+    <h2>注册</h2>
+    <!-- 创建一个包含表单的注册界面 -->
+    <form action="/auth/register" method="post">
+        <div>
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <button type="submit">注册</button>
+        </div>
+    </form>
+    <a href="/auth/login">已有账号？点击登录</a>
+</body>
+</html>

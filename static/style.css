@@ -1,10 +1,10 @@
 /* 定义颜色方案 */
 :root {
     --primary-color: #0d1619; /* 主色调 */
-    --secondary-color: #351750; /* 次要色调 */
+    --secondary-color: #2028bd; /* 次要色调 */
     --accent-color: #36cc70; /* 强调色*/
     --background-color: #cfcaca; /* 背景色 */
-    --text-color: #0a6e25; /* 文本色 */
+    --text-color: #0e8c9b; /* 文本色 */
     --border-color: #cdc6c6; /* 边框色 */
 }
 

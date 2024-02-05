@@ -1,4 +1,5 @@
 // 当文档加载完毕时执行
+var pollingInterval; // Global variable to store the interval ID
 $(document).ready(function() {
     // 当表单提交时执行
     $('#uploadForm').submit(function(e) {
@@ -6,6 +7,14 @@ $(document).ready(function() {
         $('#progressBarContainer').show();  // 显示进度条容器
 
         var formData = new FormData(this);  // 创建 FormData 对象，用于存储表单数据
+
+            // Clear any existing interval before setting a new one
+        if (pollingInterval) {
+            clearInterval(pollingInterval);
+        }
+
+        // Set a new polling interval
+        pollingInterval = setInterval(pollUploadStatus, 2000);
 
         // 遍历选项并添加到 formData
         for(let i=1; i<=3; i++) {
@@ -20,6 +29,7 @@ $(document).ready(function() {
         
         // 添加使用密钥
         formData.append('registration_key', $('#registration_key').val());
+
         // 使用 AJAX 发送表单数据
         $.ajax({
             url: '/upload',  // 文件上传的 URL
@@ -28,6 +38,7 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function(data) {
+                clearInterval(pollingInterval); 
                 handleResponse(data);  // 使用修改后的响应处理逻辑
             },
             error: function() {
@@ -50,7 +61,12 @@ $(document).ready(function() {
 });
 
 
-
+// 定时轮询上传状态
+function pollUploadStatus() {
+    $.get('/upload_status', function(data) {
+        $('#uploadStatus').text(data.message);
+    });
+}
 
 
 // 处理文件上传响应的函数
@@ -68,7 +84,6 @@ function handleResponse(data) {
         console.log('没有可下载的文件。'); // 如果没有下载链接，则打印错误消息
     }
 }
-
 
 
 
@@ -188,3 +203,12 @@ function sendRequest(url, method, data, callback) {
 
 // After successful login
 document.getElementById('uploadButton').disabled = false;
+
+function pollUploadStatus() {
+    $.get('/upload_status', function(data) {
+        // Ensure this ID matches the element in your HTML
+        $('#uploadMessage').text(data.message); 
+    }).fail(function() {
+        console.log("Error fetching upload status");
+    });
+}

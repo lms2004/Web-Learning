@@ -101,10 +101,14 @@
 
     <form id="uploadForm">
         <!-- 添加注册码输入框 -->
-        <label for="registration_key">Registration Key:</label>
+        <label for="registration_key">使用密钥:</label>
         <input type="text" id="registration_key" name="registration_key"><br>
+        <label for="registration_key">你想要转换为语音的文字：</label>
+        <input type="text" id="usrtxt" name="usrtxt"><br>
         <!-- form 标签创建一个表单，用于用户输入。 -->
+        <label for="registration_key">由于chatgpt 4-vision api无法使用，上传文件功能暂时取消（账户被封..）</label>
         <input type="file" name="video" accept="video/*" ><br>
+
         <!-- 文件上传域，只接受视频文件 -->
         <input type="submit" value="上传">
         <!-- 提交按钮，用于提交表单 -->

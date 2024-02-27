@@ -21,7 +21,10 @@ $(document).ready(function() {
             formData.append('userOption' + i, $('#optionSelect' + i).val());
         }
 
+        
+
         // 添加用户输入的文本到 formData
+        formData.append('usrtxt', $('#usrtxt').val());
         formData.append('userText1', $('#textInput1').val());
         
         // 添加音色选择到 formData
